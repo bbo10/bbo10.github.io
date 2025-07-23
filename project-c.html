@@ -115,24 +115,27 @@
                     <span class="tech-tag">Cohort Analysis</span>
                     <span class="tech-tag">LLM API (Gemini)</span>
                 </div>
-                <ul>
-                    <li><strong>언어/라이브러리 (Language & Libraries):</strong></li>
+                <button id="toggleTechnicalSkillsC" class="cta-button" style="margin-top: 20px; margin-bottom: 20px;">자세히 보기</button>
+                <div id="technical-skills-details-c" style="display: none;">
                     <ul>
-                        <li>Python, Pandas, Matplotlib, Seaborn</li>
+                        <li><strong>언어/라이브러리 (Language & Libraries):</strong></li>
+                        <ul>
+                            <li>Python, Pandas, Matplotlib, Seaborn</li>
+                        </ul>
+                        <li><strong>분석 기법 및 방법론 (Analysis Techniques & Methodologies):</strong></li>
+                        <ul>
+                            <li><strong>코호트 분석 (Cohort Analysis): </strong>간 흐름에 따른 고객 그룹의 재구매율 변화를 추적하여 리텐션 패턴을 분석.</li>
+                            <li><strong>ROAS 분석 (Return on Ad Spend): </strong>고비 대비 매출액을 계산하여 캠페인별, 상품별 광고 효율성을 정량적으로 평가.</li>
+                            <li><strong>단계적 필터링 (Step-wise Filtering): </strong>다수의 후보군에서 설정된 기준에 따라 단계적으로 대상을 압축해 나가는 체계적인 의사결정 기법.</li>
+                            <li><strong>시뮬레이션 (Simulation): </strong>특정 전략(비회원 첫 구매 상품 전환)이 실행되었을 때의 잠재적 효과(매출 증대)를 데이터 기반으로 예측.</li>
+                        </ul>
+                        <li><strong>자연어 처리 (NLP):</strong></li>
+                        <ul>
+                            <li><strong>Kiwi(Korean Intelligent Word Identifier): </strong>한국어 리뷰 텍스트의 형태소를 분석하고 명사를 추출하는 등 전처리 과정에 활용.</li>
+                            <li><strong>LLM API (Gemini): </strong>대량의 텍스트 데이터에서 핵심 장단점을 요약하고, 특정 키워드의 빈도를 추출하는 등 정성적 데이터의 정량화 및 인사이트 도출에 활용.</li>
+                        </ul>
                     </ul>
-                    <li><strong>분석 기법 및 방법론 (Analysis Techniques & Methodologies):</strong></li>
-                    <ul>
-                        <li><strong>코호트 분석 (Cohort Analysis): </strong>간 흐름에 따른 고객 그룹의 재구매율 변화를 추적하여 리텐션 패턴을 분석.</li>
-                        <li><strong>ROAS 분석 (Return on Ad Spend): </strong>고비 대비 매출액을 계산하여 캠페인별, 상품별 광고 효율성을 정량적으로 평가.</li>
-                        <li><strong>단계적 필터링 (Step-wise Filtering): </strong>다수의 후보군에서 설정된 기준에 따라 단계적으로 대상을 압축해 나가는 체계적인 의사결정 기법.</li>
-                        <li><strong>시뮬레이션 (Simulation): </strong>특정 전략(비회원 첫 구매 상품 전환)이 실행되었을 때의 잠재적 효과(매출 증대)를 데이터 기반으로 예측.</li>
-                    </ul>
-                    <li><strong>자연어 처리 (NLP):</strong></li>
-                    <ul>
-                        <li><strong>Kiwi(Korean Intelligent Word Identifier): </strong>한국어 리뷰 텍스트의 형태소를 분석하고 명사를 추출하는 등 전처리 과정에 활용.</li>
-                        <li><strong>LLM API (Gemini): </strong>대량의 텍스트 데이터에서 핵심 장단점을 요약하고, 특정 키워드의 빈도를 추출하는 등 정성적 데이터의 정량화 및 인사이트 도출에 활용.</li>
-                    </ul>
-                </ul>
+                </div>
             </div>
         </div>
     </main>
@@ -211,6 +214,36 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+
+        // Iframe height auto-adjustment script
+        window.addEventListener('load', function() {
+            const iframe = document.getElementById('infographic-iframe');
+            if (iframe) {
+                iframe.onload = function() {
+                    // Add a small delay to ensure content is fully rendered before calculating height
+                    setTimeout(() => {
+                        const scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+                        iframe.style.height = scrollHeight + 'px';
+                    }, 100); // 100ms delay
+                };
+            }
+        });
+
+        // Toggle technical skills section for project-c.html
+        const toggleButtonC = document.getElementById('toggleTechnicalSkillsC');
+        const technicalSkillsDetailsC = document.getElementById('technical-skills-details-c');
+
+        if (toggleButtonC && technicalSkillsDetailsC) {
+            toggleButtonC.addEventListener('click', function() {
+                if (technicalSkillsDetailsC.style.display === 'none') {
+                    technicalSkillsDetailsC.style.display = 'block';
+                    toggleButtonC.textContent = '접기';
+                } else {
+                    technicalSkillsDetailsC.style.display = 'none';
+                    toggleButtonC.textContent = '자세히 보기';
+                }
+            });
         }
     </script>
 
