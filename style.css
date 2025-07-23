@@ -255,6 +255,23 @@ section p {
     margin-bottom: 0.5rem !important;
 }
 
+.read-more-link {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.read-more-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.read-more-link a:hover {
+    color: var(--accent-color-hover);
+    text-decoration: underline;
+}
+
 
 .tech-tags {
     margin-bottom: 20px;
