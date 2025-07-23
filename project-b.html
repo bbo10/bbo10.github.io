@@ -157,24 +157,26 @@
                     <span class="tech-tag">RFM 분석</span>
                     <span class="tech-tag">Matplotlib</span>
                 </div>
-
-                <ul>
-                    <li><strong>언어/도구 (Language & Tools):</strong></li>
+                <button id="toggleTechnicalSkillsB" class="cta-button" style="margin-top: 20px; margin-bottom: 20px;">자세히 보기</button>
+                <div id="technical-skills-details-b" style="display: none;">
                     <ul>
-                        <li><strong>SQL: </strong>6개의 분산된 CSV 파일을 통합하고, 분석에 필요한 데이터를 집계 및 전처리하는 데 핵심적으로 사용했습니다. 대용량 데이터 환경에서의 JOIN, GROUP BY, Window Function 활용 능력을 보여줍니다.</li>
-                        <li><strong>Python: </strong>RFM 점수 계산, 고객 세분화 로직 구현, 그리고 시각화 등 SQL로 처리하기 어려운 복잡한 분석 및 시각화에 사용했습니다.</li>
+                        <li><strong>언어/도구 (Language & Tools):</strong></li>
+                        <ul>
+                            <li><strong>SQL: </strong>6개의 분산된 CSV 파일을 통합하고, 분석에 필요한 데이터를 집계 및 전처리하는 데 핵심적으로 사용했습니다. 대용량 데이터 환경에서의 JOIN, GROUP BY, Window Function 활용 능력을 보여줍니다.</li>
+                            <li><strong>Python: </strong>RFM 점수 계산, 고객 세분화 로직 구현, 그리고 시각화 등 SQL로 처리하기 어려운 복잡한 분석 및 시각화에 사용했습니다.</li>
+                        </ul>
+                        <li><strong>분석 기법 및 방법론 (Analysis Techniques & Methodologies):</strong></li>
+                        <ul>
+                            <li><strong>RFM 분석 (Recency, Frequency, Monetary): </strong>고객 행동 데이터를 기반으로 고객 가치를 정량화하고 전략적인 그룹으로 세분화했습니다.</li>
+                            <li><strong>고객 세분화 (Customer Segmentation): </strong>분석 결과를 바탕으로 고객을 4개의 핵심 그룹으로 정의하고, 각 그룹의 특성을 파악했습니다.</li>
+                            <li><strong>가설 검증 (Hypothesis Testing): </strong>비즈니스에 대한 가설을 세우고, 데이터를 통해 이를 검증하며 인사이트를 도출하는 체계적인 분석 접근법을 사용했습니다.</li>
+                        </ul>
+                        <li><strong>시각화 (Visualization):</strong></li>
+                        <ul>
+                            <li><strong>Matplotlib, Seaborn: </strong>바 차트, 파이 차트, 히트맵 등 다양한 시각화 도구를 활용하여 분석 결과를 명확하고 설득력 있게 전달했습니다.</li>
+                        </ul>
                     </ul>
-                    <li><strong>분석 기법 및 방법론 (Analysis Techniques & Methodologies):</strong></li>
-                    <ul>
-                        <li><strong>RFM 분석 (Recency, Frequency, Monetary): </strong>고객 행동 데이터를 기반으로 고객 가치를 정량화하고 전략적인 그룹으로 세분화했습니다.</li>
-                        <li><strong>고객 세분화 (Customer Segmentation): </strong>분석 결과를 바탕으로 고객을 4개의 핵심 그룹으로 정의하고, 각 그룹의 특성을 파악했습니다.</li>
-                        <li><strong>가설 검증 (Hypothesis Testing): </strong>비즈니스에 대한 가설을 세우고, 데이터를 통해 이를 검증하며 인사이트를 도출하는 체계적인 분석 접근법을 사용했습니다.</li>
-                    </ul>
-                    <li><strong>시각화 (Visualization):</strong></li>
-                    <ul>
-                        <li><strong>Matplotlib, Seaborn: </strong>바 차트, 파이 차트, 히트맵 등 다양한 시각화 도구를 활용하여 분석 결과를 명확하고 설득력 있게 전달했습니다.</li>
-                    </ul>
-                </ul>
+                </div>
             </div>
         </div>
     </main>
@@ -226,6 +228,24 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+    </script>
+
+    <script>
+        // Toggle technical skills section for project-b.html
+        const toggleButtonB = document.getElementById('toggleTechnicalSkillsB');
+        const technicalSkillsDetailsB = document.getElementById('technical-skills-details-b');
+
+        if (toggleButtonB && technicalSkillsDetailsB) {
+            toggleButtonB.addEventListener('click', function() {
+                if (technicalSkillsDetailsB.style.display === 'none') {
+                    technicalSkillsDetailsB.style.display = 'block';
+                    toggleButtonB.textContent = '접기';
+                } else {
+                    technicalSkillsDetailsB.style.display = 'none';
+                    toggleButtonB.textContent = '자세히 보기';
+                }
+            });
         }
     </script>
 
