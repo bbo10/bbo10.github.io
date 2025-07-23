@@ -69,6 +69,38 @@
             background-color: #f8fafc;
             margin-bottom: 8px;
         }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .slide-container {
+                padding: 20px;
+                min-height: auto;
+            }
+            .slide-header h1 {
+                font-size: 1.5rem; /* text-2xl -> text-xl */
+            }
+            .grid-cols-2 {
+                grid-template-columns: 1fr; /* Change to single column */
+            }
+            .text-lg {
+                font-size: 1.125rem; /* text-lg -> text-base */
+            }
+            .text-md {
+                font-size: 1rem; /* text-md -> text-sm */
+            }
+            .text-sm {
+                font-size: 0.875rem; /* text-sm -> text-xs */
+            }
+            .text-xs {
+                font-size: 0.75rem; /* text-xs -> smaller */
+            }
+            .card {
+                padding: 12px;
+            }
+            .chart-container {
+                height: 150px; /* Adjust chart height for mobile */
+            }
+        }
     </style>
 </head>
 <body>
