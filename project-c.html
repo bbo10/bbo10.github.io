@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3 - 원석 액세서리 쇼핑몰 '선택과 집중' 성장 전략</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="study.html">Study</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <div class="portfolio-item">
+                <h1>Project 3: 원석 액세서리 쇼핑몰 '선택과 집중' 성장 전략</h1>
+
+                <h2>1. 문제 정의: 빛을 잃어가는 원석</h2>
+                <p><strong>"시장 성장에도 불구하고, 리코맨즈는 광고비 증가에도 매출 정체를 겪고 있습니다. 과거의 성공 방식이 더 이상 통하지 않는 상황, 성장 동력 회복을 위한 데이터 기반의 새로운 전략이 시급합니다."</strong></p>
+                <p><span style="font-size: 0.85em; color: #545454">수공예 원석 액세서리 쇼핑몰 '리코맨즈'는 겉보기에는 성장하는 주얼리 시장의 수혜를 받는 것처럼 보였습니다. 하지만 내부 데이터를 깊이 들여다본 결과, 지속적인 매출 하락과 함께 심각한 성장 정체 문제에 직면해 있었습니다.</span></p>
+                
+                <!-- Slideshow container -->
+                <div class="slideshow-container" style="max-width: 800px; position: relative; margin: 20px auto;">
+                  <div class="mySlides fade">
+                    <img src="assets/project-c-images/101.png" style="width:100%; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="openModal(this)">
+                  </div>
+                  <div class="mySlides fade">
+                    <img src="assets/project-c-images/102.png" style="width:100%; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="openModal(this)">
+                  </div>
+                  <div class="mySlides fade">
+                    <img src="assets/project-c-images/103.png" style="width:100%; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="openModal(this)">
+                  </div>
+                  <div class="mySlides fade">
+                    <img src="assets/project-c-images/104.png" style="width:100%; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="openModal(this)">
+                  </div>
+                  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+                <ul>
+                    <li><strong>문제 1. 광고 효율성 악화: </strong>과거에 비해 광고비 지출은 늘었지만, 광고를 통한 매출 창출 능력(ROAS)은 지속적으로 하락하며 광고에 의존한 성장이 한계에 부딪혔습니다.</li>
+                    <li><strong>문제 2. 낮은 고객 리텐션: </strong>코호트 분석 결과, 고객의 재구매는 대부분 첫 구매 후 3개월 이내에만 집중되었고, 그 이후에는 급격히 감소하여 장기적인 고객 관계 형성에 실패하고 있었습니다.</li>
+                    <li><strong>문제 3. 숨겨진 비효율: </strong>전체 매출의 69%를 차지하는 '비회원' 고객은 높은 비중에도 불구하고 객단가가 낮아 실질적인 성장에는 크게 기여하지 못하고 있었습니다.</li>
+                </ul>
+                <p><strong>핵심질문: </strong></p>
+                <ul>
+                    <li>"왜 리코맨즈의 원석은 빛을 잃어가고 있는가?"</li>
+                    <li>한정된 자원을 어디에 집중해야 이 저성장 국면을 돌파할 수 있을까?</li>
+                    <li>데이터 속에 숨겨진 '될 놈', 즉 우리의 핵심 타겟 고객과 핵심 상품은 누구인가?</li>
+                </ul>
+
+                <h2>2. 분석 과정 및 역할</h2>
+                <p><span style="font-size: 0.85em; color: #545454">저는 흩어져 있던 광고, 주문, 리뷰 데이터를 통합하여 문제의 근본 원인을 다각도로 분석하고, 데이터에 기반한 구체적인 실행 전략을 도출했습니다.</span></p>
+                
+                <h3>Step 1. 데이터 통합 및 다각적 문제 진단</h3>
+                <p><span style="font-size: 0.85em; color: #545454">정확한 진단을 위해 여러 곳에 흩어져 있던 데이터를 하나로 모으고 정제하는 것부터 시작했습니다.</span></p>
+                <ul>
+                    <li><strong>데이터 통합 및 전처리: </strong>주문 데이터(2만 건), 상품 데이터(158개), 광고 데이터(Looker Studio), 리뷰 데이터(6천 건)를 통합했습니다. 특히 리뷰 데이터는 Kiwi(한국어 형태소 분석기)와 정규표현식을 활용해 특수문자, 불용어 등을 제거하여 분석 가능한 형태로 정제했습니다.</li>
+                    <li><strong>광고 효율성 분석(ROAS):</strong>과거 히트 상품('호안오닉스 카네스톤', ROAS 2.92)과 현재 주력 상품('자마노 아가페스톤', ROAS 2.06)의 광고 효율을 비교 분석한 결과, <strong>현재 광고 효율이 29%나 감소</strong>했음을 정량적으로 확인했습니다.</li>
+                    <li><strong>고객 리텐션 분석(Cohort): </strong>코호트 분석을 통해 <strong>재구매의 '골든타임'이 첫 구매 후 3개월 이내임</strong>을 발견했습니다. 또한, 전체 고객의 69%를 차지하는 비회원이 회원보다 객단가가 낮아 LTV(고객 생애 가치) 확보에 어려움이 있음을 확인했습니다.</li>
+                </ul>
+                <img src="assets/project-c-images/105.png" alt="분석 이미지 5" style="width:100%; max-width:600px; display:block; margin: 20px auto; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="openModal(this)">
+
+                <h3>Step 2. '될 놈'을 찾기 위한 포트폴리오 최적화</h3>
+                <p><span style="font-size: 0.85em; color: #545454">모든 상품에 자원을 분산하는 대신, 진정으로 성장 가능성이 있는 '될 놈' 상품을 선별하는 데 집중했습니다.</span></p>
+                <ul>
+                    <li><strong>단계적 필터링(Step-wise Filtering) 전략: </strong>매출 상위 12개 상품을 대상으로, 아래 3가지 기준을 순차적으로 적용하여 부진한 상품을 체계적으로 걸러냈습니다.</li>
+                    <ul>
+                        <li><strong>1차 필터 (단기 인기 후 급감): </strong>초기 반짝 인기에 그치고 꾸준한 매출로 이어지지 못한 상품 제외.</li>
+                        <li><strong>2차 필터 (회원 기반 약함): </strong>충성도 높은 회원들의 구매가 뒷받침되지 않아 리텐션 전략에 부적합한 상품 제외.</li>
+                        <li><strong>3차 필터 (단종/판매 중단): </strong>판매가 중단되어 더 이상 활용할 수 없는 상품 제외.</li>
+                    </ul>
+                    <li><strong>新 스테디셀러 발굴: </strong>이 필터링 과정을 통해, <strong>'호안오닉스 카네스톤', '호안오닉스 팬텀골드' 등 잠재력 높은 4개의 상품을 최종 '될 놈' 후보로 발굴</strong>했습니다.</li>
+                </ul>
+
+                <h3 style="margin-top: 40px;">Infographic: '될 놈' 선별 과정 요약</h3>
+                <iframe src="infographic.html" id="infographic-iframe" width="100%" height=1460px frameborder="0" scrolling="no" onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px';" style="border: 2px solid #ccc; margin-top: 10px; margin-bottom: 40px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"></iframe>
+                
+                <h3>Step 3. 비회원 타겟 시뮬레이션 및 리뷰 기반 제품 개선</h3>
+                <p><span style="font-size: 0.85em; color: #545454">가장 큰 비중을 차지하는 '비회원'을 성장 동력으로 전환하기 위한 전략을 데이터로 검증하고, 질적 데이터 분석을 통해 제품 자체의 경쟁력을 강화했습니다.</span></p>
+                <ul>
+                    <li><strong>매출 증대 시뮬레이션: </strong>만약 <strong>전체 고객의 69%를 차지하는 비회원이 첫 구매 시, 회원들에게 인기 있는 상품을 구매하도록 유도</strong>한다면 어떤 변화가 일어날지 시뮬레이션했습니다. 그 결과, 이 전략만으로도 <strong>총매출이 16% 상승</strong>할 수 있다는 잠재력을 확인했습니다. 이는 비회원을 타겟으로 한 첫 구매 경험 설계가 매출 반등의 핵심임을 입증합니다.</li>
+                    <li><strong>LLM 기반 리뷰 분석:</strong> 3천여 건의 리뷰 텍스트를 <strong>LLM(Gemini) API</strong>와 연동하여 분석했습니다. 단순히 긍정/부정을 나누는 것을 넘어, '줄이 얇고 잘 끊어진다', '원석/알 크기가 작다', '생각했던 색상과 다르다' 등 고객들이 공통적으로 지적하는 <strong>구체적인 제품 단점을 도출</strong>했습니다. 이는 데이터 기반의 실질적인 제품 개선과 상품 상세 페이지 문구 수정의 근거를 마련해주었습니다.</li>
+                </ul>
+
+                <div style="margin: 40px auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+                <iframe id="simulation-frame" src="simulation.html" width="100%" height=980px frameborder="0" scrolling="no" onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px';" style="border: 2px solid #ccc; margin-top: 10px; margin-bottom: 40px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"></iframe>
+                </div>
+
+                <h2>3. 최종 전략: '될 놈'에게 집중하라</h2>
+                <p><span style="font-size: 0.85em; color: #545454">분석 결과를 종합하여, '모든 곳에 자원을 분산하는 대신, 데이터로 검증된 '될 놈'(고객과 상품)에 집중'하는 4단계 핵심 전략을 제안했습니다.</span></p>
+                <ol>
+                    <li><strong>광고 타겟팅 재설정: </strong>과거 성공 경험(높은 ROAS)에 기반하여, 구매력 있는 '25-44세 남성'을 핵심 타겟으로 재설정하고 마케팅 자원을 집중.</li>
+                    <li><strong>고객 가치 증대: </strong>재구매 '골든타임'인 '첫 구매 후 3개월 이내'에 쿠폰, 이벤트 등을 통해 재구매를 유도하여 LTV 극대화.</li>
+                    <li><strong>회원처럼 첫 구매 유도: </strong>압도적 다수인 '비회원'에게 회원 인기 상품(객단가 높은 상품)을 전략적으로 노출하여 첫 구매 경험을 개선하고, 자연스럽게 회원 가입으로 유도.</li>
+                    <li><strong>상품 포트폴리오 집중: </strong>단계적 필터링으로 발굴한 '新 스테디셀러 4종'을 중심으로 BEST 카테고리를 재편하고, 리뷰 분석 결과를 반영하여 제품 품질 개선.</li>
+                </ol>
+                <img src="assets/project-c-images/106.png" alt="분석 이미지 6" style="width:100%; max-width:600px; display:block; margin: 20px auto; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="openModal(this)">
+
+                <h2>4. 활용 기술 (Technical Skills)</h2>
+                
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Tableau</span>
+                    <span class="tech-tag">Cohort Analysis</span>
+                    <span class="tech-tag">LLM API (Gemini)</span>
+                </div>
+                <ul>
+                    <li><strong>언어/라이브러리 (Language & Libraries):</strong></li>
+                    <ul>
+                        <li>Python, Pandas, Matplotlib, Seaborn</li>
+                    </ul>
+                    <li><strong>분석 기법 및 방법론 (Analysis Techniques & Methodologies):</strong></li>
+                    <ul>
+                        <li><strong>코호트 분석 (Cohort Analysis): </strong>간 흐름에 따른 고객 그룹의 재구매율 변화를 추적하여 리텐션 패턴을 분석.</li>
+                        <li><strong>ROAS 분석 (Return on Ad Spend): </strong>고비 대비 매출액을 계산하여 캠페인별, 상품별 광고 효율성을 정량적으로 평가.</li>
+                        <li><strong>단계적 필터링 (Step-wise Filtering): </strong>다수의 후보군에서 설정된 기준에 따라 단계적으로 대상을 압축해 나가는 체계적인 의사결정 기법.</li>
+                        <li><strong>시뮬레이션 (Simulation): </strong>특정 전략(비회원 첫 구매 상품 전환)이 실행되었을 때의 잠재적 효과(매출 증대)를 데이터 기반으로 예측.</li>
+                    </ul>
+                    <li><strong>자연어 처리 (NLP):</strong></li>
+                    <ul>
+                        <li><strong>Kiwi(Korean Intelligent Word Identifier): </strong>한국어 리뷰 텍스트의 형태소를 분석하고 명사를 추출하는 등 전처리 과정에 활용.</li>
+                        <li><strong>LLM API (Gemini): </strong>대량의 텍스트 데이터에서 핵심 장단점을 요약하고, 특정 키워드의 빈도를 추출하는 등 정성적 데이터의 정량화 및 인사이트 도출에 활용.</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <a class="prev-modal" onclick="plusSlidesModal(-1)">&#10094;</a>
+      <a class="next-modal" onclick="plusSlidesModal(1)">&#10095;</a>
+    </div>
+
+    <script>
+        // Slideshow script
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slides[slideIndex-1].style.display = "block";
+        }
+
+        // Modal script
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+        var prevBtn = document.querySelector(".prev-modal");
+        var nextBtn = document.querySelector(".next-modal");
+        var currentModalImages = [];
+        var currentModalImageIndex = 0;
+
+        function openModal(element) {
+            modal.style.display = "flex";
+            modalImg.src = element.src;
+
+            let parentContainer = element.closest('.slideshow-container');
+            if (parentContainer) {
+                currentModalImages = Array.from(parentContainer.querySelectorAll('img'));
+                currentModalImageIndex = currentModalImages.findIndex(img => img.src === element.src);
+                if (currentModalImages.length > 1) {
+                    prevBtn.style.display = "block";
+                    nextBtn.style.display = "block";
+                } else {
+                    prevBtn.style.display = "none";
+                    nextBtn.style.display = "none";
+                }
+            } else {
+                // It's a single image
+                currentModalImages = [element];
+                currentModalImageIndex = 0;
+                prevBtn.style.display = "none";
+                nextBtn.style.display = "none";
+            }
+        }
+
+        function plusSlidesModal(n) {
+            currentModalImageIndex = (currentModalImageIndex + n + currentModalImages.length) % currentModalImages.length;
+            modalImg.src = currentModalImages[currentModalImageIndex].src;
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+
+        modal.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

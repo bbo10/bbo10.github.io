@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borim's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="study.html">Study</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <h1>Portfolio</h1>
+
+            <!-- 프로젝트 1 -->
+            <a href="project-a.html" class="portfolio-item-link">
+                <div class="portfolio-item">
+                    <h2>Project 1: 독일 은행 신용 리스크 예측 모델 구축</h2>
+                    <p><strong>설명:</strong> 머신러닝을 활용해 채무 불이행 고객을 선제적으로 식별하고, 비즈니스 목표에 부합하는 객관적인 대출 심사 가이드라인을 구축한 프로젝트</p>
+                    <p><strong>핵심성과:</strong></p>
+                    <ul>
+                        <li><strong>모델 성능 향상:</strong> 모델의 전체 정확도를 57.9%에서 65.6%로 <strong>약 8%p 향상</strong></li>
+                        <li><strong>최적 모델 선정:</strong> 비즈니스 목표(부실 고객 식별)에 맞춰 평가지표를 설정, <strong>XGBoost 모델(F1-Score: 0.40)을 최종 채택</strong></li>
+                        <li><strong>전략 제안:</strong> 모델 예측 결과를 바탕으로 <strong>'승인/조건부 승인/거절' 3단계 대출 심사 가이드라인</strong> 제시</li>
+                    </ul>
+                        <p><strong>사용 기술:</strong></p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas & Numpy</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Matplotlib & Seaborn</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 프로젝트 2 -->
+            <a href="project-b.html" class="portfolio-item-link">
+                <div class="portfolio-item">
+                    <h2>Project 2: Instacart 고객 재구매율 증대를 위한 맞춤형 마케팅 전략 수립</h2>
+                    <p><strong>설명:</strong> SQL과 RFM 분석을 통해 100만 건 이상의 복잡한 구매 데이터를 분석하여 핵심 고객 그룹을 정의하고, 이들의 재구매율과 고객 가치를 극대화하는 실행 가능한 마케팅 전략을 제안한 프로젝트</p>
+                    <p><strong>핵심성과:</strong></p>
+                    <ul>
+                        <li><strong>고객 세분화:</strong> 전체 고객을 '우수(0.7%)', '잠재(38.0%)', '관심 필요(54.1%)', '이탈 위험(7.2%)' 4개의 핵심 그룹으로 분류하고, 성장의 열쇠가 '관심 필요 고객'에게 있음을 발견.</li>
+                        <li><strong>전략적 연결고리 발견:</strong> 고객들의 주요 구매 패턴('신선식품 소량 반복 구매')과 핵심 고객 그룹('관심 필요 고객')을 연결하여, <strong>'신선식품 정기배송 구독' 모델</strong>이라는 구체적이고 설득력 있는 솔루션 도출.</li>
+                        <li><strong>데이터 기반 전략 수립: </strong>각 고객 그룹의 특성에 맞는 차별화된 액션 플랜(VIP 혜택, 웰컴백 리워드 등)을 설계하여 한정된 마케팅 리소스의 효율적 분배 방안 제시.</li>
+                    </ul>
+                    <p><strong>사용 기술:</strong></p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">RFM</span>
+                        <span class="tech-tag">Matplotlib</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 프로젝트 3 -->
+            <a href="project-c.html" class="portfolio-item-link">
+                <div class="portfolio-item">
+                    <h2>Project 3: 원석 액세서리 쇼핑몰 '선택과 집중' 성장 전략</h2>
+                    <p><strong>설명:</strong> 지속적인 매출 하락을 겪고 있는 쇼핑몰의 광고, 주문, 리뷰 데이터를 종합 분석하여 문제의 근본 원인을 진단하고, 한정된 자원을 '될 놈'(고객과 상품)에 집중하여 성장 모멘텀을 회복시키는 데이터 기반의 '선택과 집중' 전략을 제안한 프로젝트</p>
+                    <p><strong>핵심 성과:</strong></p>
+                    <ul>
+                        <li><strong>문제 원인 진단: </strong>ROAS 분석을 통해 <strong>광고 효율이 과거 대비 29% 감소</strong>했음을, 코호트 분석을 통해 <strong>재구매가 첫 3개월 이내에만 집중</strong>되는 낮은 리텐션 문제를 정량적으로 규명.</li>
+                        <li><strong>'될 놈' 상품 발굴: </strong>매출 상위 12개 상품에 대해 <strong>단계적 필터링(Step-wise Filtering) 기법을 적용</strong>, '단기 인기', '회원 기반 약함', '단종' 상품을 제외하고 잠재력 높은 <strong>新 스테디셀러 후보 4개</strong>를 발굴.</li>
+                        <li><strong>매출 증대 시뮬레이션: </strong>전체 고객의 69%를 차지하는 '비회원'의 첫 구매 상품을 '회원 인기 상품'으로 전환할 경우, 총매출이 16% 상승할 수 있음을 데이터 시뮬레이션으로 입증.</li>
+                        <li><strong>제품 개선점 도출: </strong><strong>LLM(Gemini) API를 활용</strong>하여 3천여 건의 고객 리뷰를 분석, '줄이 얇다', '사이즈가 작다' 등 구체적인 제품 개선점을 도출하여 상품 기획에 반영할 근거 마련.</li>
+                    </ul>
+                    <p><strong>사용 기술:</strong></p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Cohort Analysis</span>
+                        <span class="tech-tag">LLM API (Gemini)</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+</body>
+</html>

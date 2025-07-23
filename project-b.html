@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 2 - Instacart 고객 재구매율 증대를 위한 맞춤형 마케팅 전략 수립</title>
+
+  <!-- 1. Tailwind CSS 먼저 로드 -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  
+  <!-- 2. 우리의 커스텀 style.css를 나중에 로드하여 덮어쓰기 -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- 3. 아이콘과 차트 라이브러리 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="study.html">Study</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <div class="portfolio-item">
+                <h1>Project 2: Instacart 고객 재구매율 증대를 위한 맞춤형 마케팅 전략 수립</h1>
+                
+                <h2>1. 문제 정의: 편리함만으로는 충분하지 않다</h2>
+                <p><strong>"Instacart는 바쁜 현대인들에게 '시간'이라는 소중한 가치를 선물했습니다. 하지만 편리함만으로는 치열한 경쟁 속에서 지속적인 성장을 담보하기 어렵습니다."</strong></p>
+                <p><span style="font-size: 0.85em; color: #545454">Instacart는 편리한 식료품 배송 서비스로 빠르게 성장했지만, 그 이면에는 중요한 비즈니스 과제가 숨어있었습니다. 분석 결과, Instacart 고객들은 '대량 구매'보다는 '소량 반복 구매'를 선호하는 뚜렷한 패턴을 보였습니다. 이는 고객 한 명 한 명의 충성도를 확보하고 <strong>재구매를 유도(Retention)</strong>하는 것이 비즈니스 성장의 핵심임을 의미합니다.
+                    <br> 이 프로젝트는 고객이 남긴 수많은 장바구니 데이터 속에서 그들의 취향, 구매 주기, 선호 상품 등의 패턴을 분석하여 '어떻게 하면 고객이 우리 서비스를 계속 이용하게 만들까?'라는 근본적인 질문에 답을 찾는 것을 목표로 합니다.</span></p>
+                <p><strong>핵심 질문:</strong></p>
+                <ul>
+                    <li>수많은 고객 중, 우리의 마케팅 노력에 가장 잘 반응할 '핵심 고객'은 누구인가?</li>
+                    <li>고객의 구매 패턴을 어떻게 활용하여 그들의 이탈을 막고 재구매를 유도할 수 있을까?</li>
+                </ul>
+
+                <h2>2. 분석 과정 및 역할</h2>
+                <p><span style="font-size: 0.85em; color: #545454">저는 흩어져 있는 원본 데이터에서부터 최종 마케팅 전략까지, 데이터 기반 의사결정의 전 과정을 주도했습니다.</span></p>
+                
+                <h3>Step 1. SQL을 활용한 대규모 데이터 통합 및 정제</h3>
+                <p><span style="font-size: 0.85em; color: #545454">분석의 첫걸음은 분산된 데이터를 하나의 의미 있는 테이블로 만드는 것이었습니다.</span></p>
+                <ul>
+                    <li><strong>데이터 통합: </strong>orders, products, departments 등 6개의 개별 CSV 파일에 흩어져 있던 <strong>100만 건 이상의 주문 데이터를 SQL JOIN 구문을 사용해 통합</strong>했습니다. 이 과정을 통해 고객의 주문 정보와 상품 정보를 연결한 포괄적인 분석 기반을 마련했습니다.</li>
+                    <li><strong>데이터 정제 및 파생 변수 생성:</strong> 분석 목적에 맞게 order_day(주문 요일)와 같은 파생 변수를 생성하고, aisle 및 department 정보를 결합하여 제품 카테고리를 명확히 했습니다. 모든 데이터의 결측치 처리와 정상 병합을 확인하여 데이터의 정합성을 확보했습니다.<br><img src="assets/project-b-images/10.png" alt="데이터 정제 및 파생 변수 생성 과정" style="width:100%; max-width:600px; display:block; margin: 20px auto; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="openModal(this)"></li>
+                </ul>
+                
+                <h3>Step 2. 가설 기반의 탐색적 데이터 분석 (EDA)</h3>
+                <p><span style="font-size: 0.85em; color: #545454">고객 행동에 대한 가설을 세우고 데이터를 통해 검증하며 비즈니스에 대한 이해를 높였습니다.</span></p>
+                <ul>
+                    <li><strong>가설 수립 및 검증:</strong></li>
+                    <ol>
+                        <li><strong>가설 1: 재구매율이 높은 특정 제품군이 있을 것이다.</strong></li>
+                        <ul>
+                            <li><strong>검증: </strong>제품 카테고리별 재구매율을 시각화한 결과, 유제품/계란, 음료, 신선 농산물 등 '신선식품(Fresh Foods)'의 재구매율이 압도적으로 높음을 확인했습니다. 이는 Instacart 비즈니스의 핵심이 신선식품에 있음을 시사하는 중요한 발견이었습니다.</li>
+                        </ul>
+                        <img src="assets/project-b-images/11.png" alt="가설 1 검증 이미지" style="width:100%; max-width:600px; display:block; margin: 20px auto; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="openModal(this)">
+                        <li><strong>가설 2: 장바구니에 담긴 제품이 많을수록 재구매율이 높을 것이다.</strong></li>
+                        <ul>
+                            <li><strong>검증: </strong>장바구니 크기별 재구매율을 분석한 결과, 가설과 달리 장바구니 크기와 재구매율 사이에는 뚜렷한 상관관계가 없었으며, 오히려 대부분의 고객이 10개 미만의 상품을 구매하는 '소량 구매' 패턴을 보였습니다. 이는 '많이 사는 고객'보다 '자주 사는 고객'이 더 중요할 수 있다는 인사이트를 제공했습니다.<br><img src="assets/project-b-images/12.png" alt="가설 2 검증 이미지" style="width:100%; max-width:600px; display:block; margin: 20px auto; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="openModal(this)"></li>
+                        </ul>
+                    </ol>
+                </ul>
+
+                <h3>Step 3. RFM 분석을 통한 정교한 고객 세분화</h3>
+                <p><span style="font-size: 0.85em; color: #545454">모든 고객을 동일하게 취급하는 대신, 고객의 가치와 행동 패턴에 따라 그룹화하여 차별화된 전략의 기반을 마련했습니다.</span></p>
+                <ul>
+                    <li><strong>RFM 모델 적용:</strong> 고객 가치 분석의 고전적이고 강력한 기법인 RFM 모델을 적용했습니다.</li>
+                    <ul>
+                        <li><strong>R(Recency):</strong> 마지막 주문 이후 얼마나 지났는가? (최근성)</li>
+                        <li><strong>F(Frequency):</strong> 얼마나 자주 주문했는가? (주문 빈도)</li>
+                        <li><strong>M(Monetary):</strong> 평균 장바구니 크기는 얼마인가? (주문량)</li>
+                    </ul>
+                    <li><strong>4개의 핵심 고객 그룹 정의: </strong>파레토 법칙(80:20)과 RFM 점수 분포를 고려하여 전체 고객을 4개의 전략적 그룹으로 분류했습니다.</li>
+                    <ul>
+                        <li><strong>우수 고객 (Top 0.7%): </strong>최근에, 자주, 많이 구매하는 충성 고객.</li>
+                        <li><strong>잠재 고객 (38.0%): </strong>구매 빈도와 규모가 꾸준한, 우수 고객으로 성장할 가능성이 높은 그룹.</li>
+                        <li><strong>관심 필요 고객 (54.1%): </strong>가장 큰 비중을 차지하지만 최근 구매가 줄어든, 이탈 가능성이 있는 핵심 관리 대상.</li>
+                        <li><strong>이탈 위험 고객 (7.2%): </strong>오랫동안 구매가 없고 빈도도 낮은, 휴면/이탈 직전의 고객.</li>
+                    </ul>
+                    <li><strong>핵심 발견: </strong>분석 결과, 소위 '충성 고객'인 '우수 고객'은 단 0.7%에 불과했으며, 가장 큰 비중을 차지하는 그룹(54.1%)은 바로 '관심 필요 고객'이었습니다. 이는 Instacart 성장의 열쇠가 소수의 VIP를 관리하는 것뿐만 아니라, 거대한 '관심 필요 고객' 그룹을 어떻게 다시 활성화시키고 '잠재 고객'으로 전환시키느냐에 달려있음을 명확히 보여주었습니다.</li>
+                </ul>
+
+                <section class="slide">
+                  <h3 class="title text-2xl mb-6">고객 세그먼트별 전략</h3>
+
+                  <div class="grid grid-cols-2 gap-4 mb-8">
+                    <!-- Left Column -->
+                    <div class="pr-4 flex flex-col">
+                      <h4 class="text-lg font-semibold section-heading mb-2">RFM 분석 모델</h4>
+                      <div class="concept-box mb-3">
+                        <p class="mb-2"><span class="font-bold text-blue-600">R</span>ecency / <span class="font-bold text-blue-600">F</span>requency / <span class="font-bold text-blue-600">M</span>onetary</p>
+                        <ul class="text-sm text-gray-700" style="list-style-type: none; margin-left: 0;">
+                          <li><span class="text-blue-600 font-bold">Recency:</span> 이전 주문 이후 경과 일수</li>
+                          <li><span class="text-blue-600 font-bold">Frequency:</span> 총 주문 횟수</li>
+                          <li><span class="text-blue-600 font-bold">Monetary:</span> 주문당 평균 구매 수량</li>
+                        </ul>
+                        <p class="warning mt-2 text-sm"><i class="fas fa-exclamation-triangle mr-1"></i> RFM 점수 분포 = 7 ~ 11점 집중</p>
+                      </div>
+                      <div class="chart-container flex-grow" style="position: relative;"><canvas id="rfmDistChart"></canvas></div>
+                    </div>
+                    <!-- Right Column -->
+                    <div class="flex flex-col">
+                      <h4 class="text-lg font-semibold section-heading mb-2">고객 세그먼트 분류</h4>
+                      <table class="segment-table">
+                        <thead>
+                          <tr>
+                            <th>RFM Score</th>
+                            <th>고객 세그먼트</th>
+                            <th>설명</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr><td class="text-center">13-15점</td><td class="text-center font-semibold text-blue-700">우수고객</td><td>최근 방문, 자주, 많이 구매한 고객</td></tr>
+                          <tr><td class="text-center">10-12점</td><td class="text-center font-semibold text-blue-600">잠재고객</td><td>꾸준한 구매를 보이지만 우수고객보단 낮음</td></tr>
+                          <tr><td class="text-center">7-9점</td><td class="text-center font-semibold text-blue-500">관심 필요 고객</td><td>구매는 했지만 최근 활동이 줄어든 고객</td></tr>
+                          <tr><td class="text-center">3-6점</td><td class="text-center font-semibold text-blue-800">이탈 위험 고객</td><td>구매 이력이 거의 없는 휴면 고객</td></tr>
+                        </tbody>
+                      </table>
+
+                      <div class="mt-4">
+                        <h4 class="text-lg font-semibold section-heading mb-2">고객 세그먼트 분포</h4>
+                        <div class="chart-container" style="height: 250px;"><canvas id="segmentBarChart"></canvas></div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+
+                <h3>Step 4. 데이터에 기반한 맞춤형 마케팅 전략 제안</h3>
+                <p><span style="font-size: 0.85em; color: #545454">분석 결과를 바탕으로, 각 고객 그룹의 특성에 맞는 구체적이고 실행 가능한 마케팅 액션 플랜을 설계했습니다.</span></p>
+                <ul>
+                    <li><strong>"고객 맞춤형 전략":</strong></li>
+                    <ul>
+                        <li><strong>관심 필요 고객 (54.1%) 대상: </strong>이들의 주된 구매 품목이 '신선식품'이라는 점과 '소량 반복 구매' 패턴을 연결했습니다. 재방문을 유도하고 구매를 활성화하기 위해 '신선식품 정기배송 구독 모델'을 제안하여 고객을 서비스에 Lock-in시키는 전략을 설계했습니다. (예: 반복 구매 상품 탐색 시 정기배송 팝업 노출 → 구독 시 할인 혜택)</li>
+                        <li><strong>우수 고객 (0.7%) 대상: </strong>충성도를 유지하고 더 큰 가치를 창출하도록 'VIP 멤버십 혜택' (예: 전용 할인, 무료 배송) 및 기업 고객 제도를 제안했습니다.</li>
+                        <li><strong>이탈 위험 고객 (7.2%) 대상:</strong>고객의 이탈을 막고 다시 서비스를 이용하도록 유도하기 위해 '웰컴백 리워드' (예: 다음 구매 시 10% 할인 쿠폰)를 제안했습니다.</li>
+                    </ul>
+                </ul>
+                <img src="assets/project-b-images/13.png" alt="이탈 위험 고객 대상 전략 이미지" style="width:100%; max-width:600px; display:block; margin: 20px auto; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="openModal(this)">
+
+                <h2>3. 활용 기술 (Technical Skills)</h2>
+
+                <div class="tech-tags">
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">RFM 분석</span>
+                    <span class="tech-tag">Matplotlib</span>
+                </div>
+
+                <ul>
+                    <li><strong>언어/도구 (Language & Tools):</strong></li>
+                    <ul>
+                        <li><strong>SQL: </strong>6개의 분산된 CSV 파일을 통합하고, 분석에 필요한 데이터를 집계 및 전처리하는 데 핵심적으로 사용했습니다. 대용량 데이터 환경에서의 JOIN, GROUP BY, Window Function 활용 능력을 보여줍니다.</li>
+                        <li><strong>Python: </strong>RFM 점수 계산, 고객 세분화 로직 구현, 그리고 시각화 등 SQL로 처리하기 어려운 복잡한 분석 및 시각화에 사용했습니다.</li>
+                    </ul>
+                    <li><strong>분석 기법 및 방법론 (Analysis Techniques & Methodologies):</strong></li>
+                    <ul>
+                        <li><strong>RFM 분석 (Recency, Frequency, Monetary): </strong>고객 행동 데이터를 기반으로 고객 가치를 정량화하고 전략적인 그룹으로 세분화했습니다.</li>
+                        <li><strong>고객 세분화 (Customer Segmentation): </strong>분석 결과를 바탕으로 고객을 4개의 핵심 그룹으로 정의하고, 각 그룹의 특성을 파악했습니다.</li>
+                        <li><strong>가설 검증 (Hypothesis Testing): </strong>비즈니스에 대한 가설을 세우고, 데이터를 통해 이를 검증하며 인사이트를 도출하는 체계적인 분석 접근법을 사용했습니다.</li>
+                    </ul>
+                    <li><strong>시각화 (Visualization):</strong></li>
+                    <ul>
+                        <li><strong>Matplotlib, Seaborn: </strong>바 차트, 파이 차트, 히트맵 등 다양한 시각화 도구를 활용하여 분석 결과를 명확하고 설득력 있게 전달했습니다.</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <a class="prev-modal" onclick="plusSlidesModal(-1)">&#10094;</a>
+      <a class="next-modal" onclick="plusSlidesModal(1)">&#10095;</a>
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+        var prevBtn = document.querySelector(".prev-modal");
+        var nextBtn = document.querySelector(".next-modal");
+        var currentModalImages = [];
+        var currentModalImageIndex = 0;
+
+        function openModal(element) {
+            modal.style.display = "flex";
+            modalImg.src = element.src;
+
+            let parentCarousel = element.closest('.carousel');
+            if (parentCarousel) {
+                currentModalImages = Array.from(parentCarousel.querySelectorAll('.carousel-item img'));
+                currentModalImageIndex = currentModalImages.indexOf(element);
+                prevBtn.style.display = currentModalImages.length > 1 ? "block" : "none";
+                nextBtn.style.display = currentModalImages.length > 1 ? "block" : "none";
+            } else {
+                currentModalImages = [element];
+                currentModalImageIndex = 0;
+                prevBtn.style.display = "none";
+                nextBtn.style.display = "none";
+            }
+        }
+
+        function plusSlidesModal(n) {
+            currentModalImageIndex = (currentModalImageIndex + n + currentModalImages.length) % currentModalImages.length;
+            modalImg.src = currentModalImages[currentModalImageIndex].src;
+        }
+
+        document.getElementsByClassName("close")[0].onclick = function() { 
+            modal.style.display = "none";
+        }
+
+        modal.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+      // RFM 점수 분포
+const rfmCtx = document.getElementById('rfmDistChart').getContext('2d');
+new Chart(rfmCtx, {
+  type: 'bar',
+  data: {
+    labels: ['5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'],
+    datasets: [{
+      label: 'Customer Count',
+      data: [0, 990, 13899, 31436, 38346, 41709, 41928, 29548, 6921, 1312, 120],
+      backgroundColor: [
+        '#cfe2ff','#cfe2ff','#9ec5fe','#9ec5fe','#9ec5fe',
+        '#6ea8fe','#6ea8fe','#3d8bfd','#0d6efd','#0d6efd','#0d6efd'
+      ]
+    }]
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: false
+      },
+      title: {
+        display: true,
+        text: 'RFM 점수 분포'
+      }
+    },
+    scales: {
+      y: {
+        grid: { display: false },
+        beginAtZero: true
+      },
+      x: {
+        grid: { display: false }
+      }
+    }
+  }
+});
+
+
+      // 세그먼트 막대
+  const barCtx = document.getElementById('segmentBarChart').getContext('2d');
+  const segmentData = {
+    labels: ['우수고객', '잠재고객', '관심필요고객', '이탈위험고객'],
+    counts: [1432, 78397, 111491, 14889],
+    percentages: [0.7, 38.0, 54.1, 7.2]
+  };
+
+  new Chart(barCtx, {
+    type: 'bar',
+    data: {
+      labels: segmentData.labels,
+      datasets: [{
+        label: '고객 수',
+        data: segmentData.counts,
+        backgroundColor: ['#0d6efd', '#3d8bfd', '#6ea8fe', '#0a58ca']
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {display: false},
+        title: {display: true, text: '세그먼트별 고객 수'},
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              let label = context.dataset.label || '';
+              if (label) {
+                label += ': ';
+              }
+              if (context.parsed.y !== null) {
+                label += context.parsed.y.toLocaleString() + '명';
+              }
+              // 비율 정보 추가
+              const percentage = segmentData.percentages[context.dataIndex];
+              label += ` (${percentage}%)`;
+              return label;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          type: 'logarithmic',
+          grid: { display: false },
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: '고객 수 (로그 스케일)'
+          }
+        },
+        x: {
+          grid: { display: false }
+        }
+      }
+    }
+  });
+    </script>
+</body>
+</html>

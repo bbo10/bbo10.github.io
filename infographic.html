@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>'될 놈'을 찾기 위한 포트폴리오 최적화</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .slide-container {
+            max-width: 1280px;
+            width: 100%;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .header-bar {
+            height: 12px;
+            background-color: #2c3e50;
+        }
+        .filter-box {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        .filter-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            border-radius: 6px 6px 0 0;
+        }
+        .step-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .arrow-down {
+            height: 30px;
+            position: relative;
+        }
+        .arrow-down:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #cbd5e0;
+            transform: translateX(-50%);
+        }
+        .product-badge {
+            border-radius: 16px;
+            padding: 6px 12px;
+            font-weight: 500;
+            font-size: 13px;
+            display: inline-block;
+            margin: 4px;
+            white-space: nowrap;
+        }
+        .product-selected {
+            background-color: #ebf8ff;
+            border: 1px solid #90cdf4;
+            color: #2b6cb0;
+        }
+        .product-filtered {
+            background-color: #fff5f5;
+            border: 1px solid #fed7d7;
+            color: #c53030;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container mx-auto">
+<div class="header-bar"></div>
+<!-- 슬라이드 제목 -->
+<div class="px-12 pt-8 pb-4">
+<h1 class="text-3xl font-bold text-gray-800">'될 놈'을 찾기 위한 포트폴리오 최적화</h1>
+<p class="text-gray-600 mt-2">3단계 필터링을 통한 스테디셀러 발굴 과정</p>
+<div class="w-32 h-1 bg-blue-600 mt-2"></div>
+</div>
+<!-- 초기 후보 제품 -->
+<div class="px-12 mt-2">
+<div class="filter-box p-4">
+<div class="flex items-center mb-2">
+<div class="flex-shrink-0 mr-3">
+<div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+<i class="fas fa-cubes text-gray-600"></i>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg">초기 후보 상품 (12개)</h3>
+<p class="text-sm text-gray-600">매출 상위 12개 후보에서 시작</p>
+</div>
+</div>
+<div class="flex flex-wrap mt-2 justify-center">
+<span class="product-badge product-selected">호안오닉스 카네스톤</span>
+<span class="product-badge product-selected">호안오닉스 팬텀골드</span>
+<span class="product-badge product-selected">팬텀골드 커플세트</span>
+<span class="product-badge product-selected">자마노 아가페스톤</span>
+<span class="product-badge product-filtered">자마노 레브스톤 4mm</span>
+<span class="product-badge product-filtered">레브스톤 포르테스톤 세트</span>
+<span class="product-badge product-filtered">호안석 골드 플렌티스톤</span>
+<span class="product-badge product-filtered">아이아게이트 디오스톤</span>
+<span class="product-badge product-filtered">호안석 트레스톤</span>
+<span class="product-badge product-filtered">호안닉스 리치스톤</span>
+<span class="product-badge product-filtered">레드 윈스톤 세트</span>
+<span class="product-badge product-filtered">굿스톤 포르테스톤 세트</span>
+</div>
+</div>
+</div>
+<div class="arrow-down mx-auto"></div>
+<!-- 필터 1: 단기 인기 후 급감 -->
+<div class="px-12 mt-2">
+<div class="filter-box">
+<div class="filter-header p-4 flex items-center">
+<div class="step-circle bg-blue-600 mr-3">1</div>
+<div>
+<h3 class="font-bold text-lg">단기 인기 후 급감 필터</h3>
+<p class="text-sm text-gray-600">초기 반짝 성장 후 급격히 감소한 상품 제외</p>
+</div>
+</div>
+<div class="p-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-gray-100 p-3 rounded-md">
+<div class="flex items-center mb-2">
+<i class="fas fa-chart-line text-red-500 mr-2"></i>
+<p class="font-medium text-sm">필터링 근거</p>
+</div>
+<ul class="text-xs list-disc ml-4 text-gray-600 space-y-1">
+<li>출시 초기 매출 급증 후 지속적인 하락</li>
+<li>일시적 이벤트나 프로모션 효과로 인한 급증</li>
+<li>장기적 성장 가능성 낮음</li>
+</ul>
+</div>
+<div class="bg-gray-100 p-3 rounded-md">
+<div class="flex items-center mb-2">
+<i class="fas fa-filter text-red-500 mr-2"></i>
+<p class="font-medium text-sm">제외된 상품</p>
+</div>
+<div>
+<span class="product-badge product-filtered text-xs">자마노 레브스톤 4mm</span>
+<span class="product-badge product-filtered text-xs">레브스톤 포르테스톤 세트</span>
+<span class="product-badge product-filtered text-xs">아이아게이트 디오스톤</span>
+<span class="product-badge product-filtered text-xs">호안석 트레스톤</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="arrow-down mx-auto"></div>
+<!-- 필터 2: 회원 기반 약함 -->
+<div class="px-12 mt-2">
+<div class="filter-box">
+<div class="filter-header p-4 flex items-center">
+<div class="step-circle bg-green-600 mr-3">2</div>
+<div>
+<h3 class="font-bold text-lg">회원 기반 약함 필터</h3>
+<p class="text-sm text-gray-600">리텐션 전략에 부적합한 상품 제외</p>
+</div>
+</div>
+<div class="p-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-gray-100 p-3 rounded-md">
+<div class="flex items-center mb-2">
+<i class="fas fa-user-friends text-green-500 mr-2"></i>
+<p class="font-medium text-sm">필터링 근거</p>
+</div>
+<ul class="text-xs list-disc ml-4 text-gray-600 space-y-1">
+<li>회원 구매율이 낮은 상품</li>
+<li>비회원 일회성 구매 위주</li>
+<li>재구매 및 고객 충성도 낮음</li>
+</ul>
+</div>
+<div class="bg-gray-100 p-3 rounded-md">
+<div class="flex items-center mb-2">
+<i class="fas fa-filter text-green-500 mr-2"></i>
+<p class="font-medium text-sm">제외된 상품</p>
+</div>
+<div>
+<span class="product-badge product-filtered text-xs">호안석 골드 플렌티스톤</span>
+<span class="product-badge product-filtered text-xs">레드 윈스톤 세트</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="arrow-down mx-auto"></div>
+<!-- 필터 3: 단종/판매 중단 추정 -->
+<div class="px-12 mt-2">
+<div class="filter-box">
+<div class="filter-header p-4 flex items-center">
+<div class="step-circle bg-purple-600 mr-3">3</div>
+<div>
+<h3 class="font-bold text-lg">단종/판매 중단 추정 필터</h3>
+<p class="text-sm text-gray-600">공백기간이나 주문 없음 기준 추정</p>
+</div>
+</div>
+<div class="p-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-gray-100 p-3 rounded-md">
+<div class="flex items-center mb-2">
+<i class="fas fa-store-slash text-purple-500 mr-2"></i>
+<p class="font-medium text-sm">필터링 근거</p>
+</div>
+<ul class="text-xs list-disc ml-4 text-gray-600 space-y-1">
+<li>장기간 판매량 0건 기록</li>
+<li>최근 데이터 부재</li>
+<li>재고 소진 후 추가 생산 불가능 추정</li>
+</ul>
+</div>
+<div class="bg-gray-100 p-3 rounded-md">
+<div class="flex items-center mb-2">
+<i class="fas fa-filter text-purple-500 mr-2"></i>
+<p class="font-medium text-sm">제외된 상품</p>
+</div>
+<div>
+<span class="product-badge product-filtered text-xs">호안닉스 리치스톤</span>
+<span class="product-badge product-filtered text-xs">굿스톤 포르테스톤 세트</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="arrow-down mx-auto"></div>
+<!-- 최종 선정 상품 -->
+<div class="px-12 mt-2 pb-8">
+<div class="filter-box bg-blue-50">
+<div class="filter-header p-4 flex items-center bg-blue-100">
+<div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-3">
+<i class="fas fa-trophy text-white"></i>
+</div>
+<div>
+<h3 class="font-bold text-lg">최종 선정된 '될 놈' 상품 (4개)</h3>
+<p class="text-sm text-gray-600">3단계 필터링을 통과한 스테디셀러 후보</p>
+</div>
+</div>
+<div class="p-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white p-3 rounded-md border border-blue-200 flex items-center">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+<i class="fas fa-gem text-blue-600"></i>
+</div>
+<div>
+<h4 class="font-bold">호안오닉스 카네스톤</h4>
+<p class="text-xs text-gray-600">대표 베스트셀러, 비회원 기반 리텐션 전략에 최적</p>
+</div>
+</div>
+<div class="bg-white p-3 rounded-md border border-blue-200 flex items-center">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+<i class="fas fa-gem text-blue-600"></i>
+</div>
+<div>
+<h4 class="font-bold">호안오닉스 팬텀골드</h4>
+<p class="text-xs text-gray-600">안정적인 수요 흐름, 회원/비회원 균형</p>
+</div>
+</div>
+<div class="bg-white p-3 rounded-md border border-blue-200 flex items-center">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+<i class="fas fa-gem text-blue-600"></i>
+</div>
+<div>
+<h4 class="font-bold">팬텀골드 커플세트</h4>
+<p class="text-xs text-gray-600">호안오닉스 팬텀골드의 확장 상품, 시너지 효과</p>
+</div>
+</div>
+<div class="bg-white p-3 rounded-md border border-blue-200 flex items-center">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+<i class="fas fa-gem text-blue-600"></i>
+</div>
+<div>
+<h4 class="font-bold">자마노 아가페스톤</h4>
+<p class="text-xs text-gray-600">비회원 유입 및 구매 활발, 회원 구매 꾸준히 증가</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 로고 및 출처 표시 -->
+<div class="absolute bottom-4 right-4">
+<div class="flex items-center">
+</div>
+</div>
+</div>
+</body>
+</html>
