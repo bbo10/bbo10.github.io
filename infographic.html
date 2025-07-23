@@ -87,6 +87,59 @@
             color: #c53030;
             text-decoration: line-through;
         }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .slide-container {
+                min-height: auto;
+                padding: 15px;
+            }
+            .px-12 {
+                padding-left: 1rem; /* px-4 */
+                padding-right: 1rem; /* px-4 */
+            }
+            .pt-8 {
+                padding-top: 1rem; /* pt-4 */
+            }
+            .pb-4 {
+                padding-bottom: 1rem; /* pb-4 */
+            }
+            .text-3xl {
+                font-size: 1.875rem; /* text-2xl */
+            }
+            .text-lg {
+                font-size: 1.125rem; /* text-base */
+            }
+            .text-sm {
+                font-size: 0.875rem; /* text-xs */
+            }
+            .product-badge {
+                font-size: 11px;
+                padding: 4px 8px;
+            }
+            .grid-cols-2 {
+                grid-template-columns: 1fr; /* Change to single column */
+            }
+            .process-flow {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+            .step {
+                width: 100%;
+            }
+            .result-items {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .item-tag {
+                width: fit-content;
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
