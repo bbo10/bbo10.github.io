@@ -90,6 +90,35 @@ nav a:hover::after {
     width: 100%;
 }
 
+.hamburger-menu {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.hamburger-menu .line {
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary-text-color);
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Show hamburger menu */
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+}
+
 /* --- Main Content & Sections --- */
 main {
     width: 100%;
@@ -828,4 +857,78 @@ section h2 {
 
 .tech-stack-table tbody tr:hover {
     background-color: #f1f3f5; /* A light hover effect */
+}
+
+/* --- Media Queries for Responsive Design --- */
+
+@media (max-width: 1100px) {
+    .project-container,
+    .portfolio-grid {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide navigation links */
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    nav li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid var(--light-border-color);
+    }
+
+    nav a {
+        padding: 15px;
+        display: block;
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    .project-container,
+    .skills-container,
+    .study-grid {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .project-card,
+    .skill-category {
+        width: 100%;
+        max-width: none;
+    }
+
+    .portfolio-grid {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    #home h1 {
+        font-size: 2rem;
+    }
+
+    .hero-intro {
+        font-size: 1rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.3rem;
+    }
 }
