@@ -447,11 +447,6 @@ section h2 {
     margin-bottom: 8px;
 }
 
-
-
-
-
-
 /* --- Contact Section --- */
 #contact {
     background-color: var(--card-bg-color);
@@ -778,7 +773,6 @@ section h2 {
 .study-item-content .tech-tags {
     margin-top: auto; /* Push tags to the bottom */
 }
-
 
 .cta-button {
     display: inline-block;
