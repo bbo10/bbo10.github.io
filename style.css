@@ -230,6 +230,9 @@ section h2 {
     display: inline-block; /* 핵심 */
 }
 
+  .project-period {
+    text-align: right;
+  }
 
 .project-container {
     display: flex;
