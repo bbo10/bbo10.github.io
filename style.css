@@ -674,6 +674,55 @@ section h2 {
     background: #fff;
 }
 
+/* --- Project Detail CTA Button --- */
+.project-cta-group {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 28px;
+}
+
+.github-main-btn {
+    display: inline-block;
+    padding: 12px 22px;
+    background-color: var(--primary-text-color);
+    color: white;
+    border: 1px solid var(--primary-text-color);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.github-main-btn:hover {
+    transform: translateY(-2px);
+    background-color: white;
+    color: var(--primary-text-color);
+}
+
+/* --- GitHub button (under period) --- */
+.github-inline-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+.github-inline-btn {
+    padding: 5px 10px;
+    border: 1px solid var(--light-border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.github-inline-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
 /* --- Carousel / Modal --- */
 .carousel {
     position: relative;
@@ -1077,6 +1126,38 @@ button[id^="toggleTechnicalSkills"]:hover {
 
 .tech-stack-table tbody tr:hover {
     background-color: #f1f3f5;
+}
+
+/* --- GitHub Button --- */
+/* --- Action Links (Detail + GitHub) --- */
+.action-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.detail-link {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.detail-link:hover {
+    text-decoration: underline;
+}
+
+.github-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--light-border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    transition: all 0.2s ease;
+}
+
+.github-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 /* =========================================================
