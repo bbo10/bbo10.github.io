@@ -18,7 +18,7 @@
     <ul>
       <li><a href="./index.html">Home</a></li>
       <li><a href="./index.html#about">About Me</a></li>
-      <li><a href="./index.html#strengths">Strengths</a></li>
+      <li><a href="./index.html#strengths">Strenghts</a></li>
       <li><a href="./portfolio.html">Portfolio</a></li>
       <li><a href="./study.html">Study</a></li>
       <li><a href="./index.html#contact">Contact</a></li>
@@ -30,32 +30,60 @@
 <div class="content-container">
 <div class="project-detail-container">
 
-<h1>“대전 단골 주유소, 정말 항상 이득일까?”</h1>
+<section class="project-hero-block">
+  <div class="project-label">의사결정 시뮬레이션 · 비용 최적화</div>
+  <h1 class="project-hero-title">
+    대전 단골 주유소, 정말 항상 이득일까?
+    <small>이동할 가치가 있는 주유소는 어디인가?</small>
+  </h1>
 
-<div class="project-period">
-    <p>프로젝트 기간: 2026.01.02 ~ 2026.01.20</p>
-</div>
-
-<div class="github-inline-wrapper">
+  <div class="project-meta-row">
+    <span>2026.01.02 ~ 2026.01.20</span>
     <a href="https://github.com/bbo10/portfolio-projects/tree/main/project-gas_station"
        target="_blank"
        rel="noopener noreferrer"
        class="github-inline-btn">
         GitHub 코드
     </a>
-</div>
+  </div>
 
-<p style="text-align:center;">
-  <strong>
-    운전 중 주유가 필요할 때, “오송에서 바로 넣을까, 아니면 대전에 자주 가는 저렴한 주유소까지 갈까?” <br>
-    이 질문에서 프로젝트가 시작되었습니다.
-  </strong>
-</p>
+  <p class="project-hero-lead">
+    운전 중 주유가 필요할 때, <strong>“오송에서 바로 넣을까, 아니면 대전에 자주 가는 저렴한 주유소까지 갈까?”</strong>
+    이 질문에서 프로젝트가 시작되었습니다. 단일 지표(가격)만으로는 좋은 의사결정을 만들 수 없고,
+    여러 비용과 혜택을 함께 반영한 판단 기준 설계가 중요하다는 점을 확인했습니다.
+  </p>
 
-<p class="sub-text" style="text-align:center;">
-  이 경험을 통해 단일 지표(가격)만으로는 좋은 의사결정을 만들 수 없고,
-  여러 비용과 혜택을 함께 반영한 판단 기준 설계가 중요하다는 점을 확인했습니다.
-</p>
+  <div class="hero-insight-grid" aria-label="프로젝트 핵심 요약">
+    <div class="hero-insight-card">
+      <span class="insight-label">분석 질문</span>
+      <strong>리터당 가격이 싸면 항상 이득인가?</strong>
+      <p>단골 주유소 선택을 가격이 아니라 총비용 관점으로 재정의</p>
+    </div>
+    <div class="hero-insight-card">
+      <span class="insight-label">핵심 지표</span>
+      <strong>Net Total Cost</strong>
+      <p>주유비, 이동비, 포인트 및 멤버십 혜택을 함께 반영</p>
+    </div>
+    <div class="hero-insight-card">
+      <span class="insight-label">접근</span>
+      <strong>거리와 연비를 비용으로 변환</strong>
+      <p>이동 거리가 길어질수록 총비용이 증가할 가능성을 검증</p>
+    </div>
+    <div class="hero-insight-card">
+      <span class="insight-label">전략</span>
+      <strong>이동할 가치 기준 설계</strong>
+      <p>몇 km까지 더 가는 것이 실제로 이득인지 수치화</p>
+    </div>
+  </div>
+
+  <div class="growth-flow">
+    <span>문제 정의</span>
+    <span>비용 구조화</span>
+    <span>API 데이터 수집</span>
+    <span>시뮬레이션</span>
+    <span>의사결정 기준 도출</span>
+  </div>
+</section>
 
 <!-- Slideshow 1 -->
 <div class="slideshow-container" style="max-width: 800px; position: relative; margin: 20px auto;">
@@ -75,6 +103,8 @@
   <a class="prev" onclick="plusSlides(-1, 'slides-1')">&#10094;</a>
   <a class="next" onclick="plusSlides(1, 'slides-1')">&#10095;</a>
 </div>
+
+<hr style="border:none; border-top:1px solid #DEE2E6; margin: 30px 0;">
 
 <h2>1. 문제 정의: 가격은 항상 정답이 아니었다</h2>
 
