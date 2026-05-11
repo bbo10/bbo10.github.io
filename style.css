@@ -293,27 +293,124 @@ section h2 {
 }
 
 /* --- About Section --- */
-.about-left {
-    text-align: left;
-    max-width: 860px;
+.about-layout {
+    display: grid;
+    grid-template-columns: 0.95fr 1.35fr;
+    gap: 36px;
+    align-items: stretch;
+    max-width: 1000px;
     margin: 0 auto;
+    text-align: left;
 }
 
-.about-keywords {
-    margin-bottom: 20px;
+.about-question-card {
+    background: linear-gradient(135deg, #f1f8ff 0%, #ffffff 100%);
+    border: 1px solid #d9eaff;
+    border-left: 6px solid var(--accent-color);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+    box-shadow: var(--card-shadow);
 }
 
-.about-keywords h3 {
-    font-size: 1.6rem;
+.about-label {
+    display: inline-block;
+    margin: 0 0 14px;
+    color: var(--accent-color);
+    font-size: 0.85rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
-.about-summary p {
-    font-size: 1rem;
-    line-height: 1.8;
+.about-question-card h3 {
+    margin: 0 0 18px;
+    font-size: 1.65rem;
+    line-height: 1.45;
+    color: var(--primary-text-color);
+}
+
+.about-question-card p {
+    margin: 0;
     color: var(--secondary-text-color);
-    margin-bottom: 16px;
+    line-height: 1.8;
+}
+
+.about-main-text {
+    background-color: var(--card-bg-color);
+    border-radius: var(--radius-md);
+    padding: 6px 0;
+}
+
+.about-main-text p {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--secondary-text-color);
+    margin: 0 0 18px;
+}
+
+.about-main-text .about-lead {
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    line-height: 1.8;
+}
+
+.about-process {
+    max-width: 1000px;
+    margin: 34px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    text-align: left;
+}
+
+.about-process-item {
+    background-color: #ffffff;
+    border: 1px solid var(--light-border-color);
+    border-radius: var(--radius-md);
+    padding: 22px 20px;
+    box-shadow: var(--card-shadow);
+}
+
+.about-process-item span {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.about-process-item strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    color: var(--primary-text-color);
+}
+
+.about-process-item p {
+    margin: 0;
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .about-question-card {
+        padding: 28px 22px;
+    }
+
+    .about-question-card h3 {
+        font-size: 1.35rem;
+    }
+
+    .about-process {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* --- Strengths Section --- */
