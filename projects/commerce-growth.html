@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>원석 액세서리 브랜드 매출 정체 분석 · 이보림</title>
+  <meta name="description" content="기업연계 프로젝트: 원석 액세서리 브랜드의 매출 정체 원인 분석과 스테디셀러 제안">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html">이보림</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <a class="back" href="../index.html#projects">← 프로젝트 목록</a>
+
+      <section class="detail-hero">
+        <p class="eyebrow">01 · 기업연계 프로젝트 · 커머스</p>
+        <h1>원석 액세서리 브랜드 매출 정체 분석과 스테디셀러 제안</h1>
+        <p class="lead">광고비를 써도 매출이 줄어드는 상황을 광고·리텐션·고객 구조·상품 구조로 나눠 진단하고, '팔릴 상품'에 집중하는 전략을 제안했습니다.</p>
+
+        <div class="meta-table">
+          <div><span class="meta-label">기간</span><span class="value">2025.04.07 – 05.07</span></div>
+          <div><span class="meta-label">구성</span><span class="value">4인 팀</span></div>
+          <div><span class="meta-label">기여도</span><span class="value">30%</span></div>
+          <div><span class="meta-label">도구</span><span class="value">Python (pandas, matplotlib)</span></div>
+          <div class="meta-wide"><span class="meta-label">데이터 규모</span><span class="value">주문 18,124건 · 회원 6,887명 · 상품 158개 · 리뷰 3,728건 · 광고 성과 데이터 1,673행 (2023.05 – 2025.03)</span></div>
+        </div>
+        <div class="answer-card">
+          <div class="ac-q"><span class="meta-label">질문</span><p>광고를 해도 매출이 줄어드는 쇼핑몰, 무엇에 집중해야 할까?</p></div>
+          <div class="is-answer"><span class="meta-label">답</span><p>상품 수를 늘리기보다, 이미 팔리는 핵심 상품 3개에 집중해야 합니다.</p></div>
+          <div class="ac-e"><span class="meta-label">근거</span><p>상품 158개 중 상위 12개가 매출의 약 68%를 차지했습니다. 신상품은 계속 늘었지만 매출 하락을 되돌리지 못했고 기존 상품의 매출을 잠식했습니다.</p></div>
+          <div class="ac-j"><span class="meta-label">내 판단</span><p>관측 기간이 2개월뿐인데 매출 12위에 오른 상품은 버리지 않고, 재입고해 수요를 다시 검증하자고 제안했습니다.</p></div>
+        </div>
+      </section>
+
+      <div class="detail-body">
+        <nav class="toc" aria-label="이 페이지 목차">
+          <ol>
+            <li><a href="#background">배경</a></li>
+            <li><a href="#problem">문제</a></li>
+            <li><a href="#insight">인사이트</a></li>
+            <li><a href="#role">내 역할: 스테디셀러</a></li>
+            <li><a href="#strategy">전략</a></li>
+            <li><a href="#result">결과·한계</a></li>
+          </ol>
+        </nav>
+
+        <article>
+          <section class="block" id="background">
+            <h2>배경</h2>
+            <p>원석 액세서리 수공예품을 판매하는 온라인 브랜드와 함께한 기업연계 프로젝트입니다. 이 브랜드는 광고를 집행하고 신상품도 꾸준히 내놓았지만, 월별 매출은 하락과 정체를 반복하고 있었습니다.</p>
+            <p>팀은 "왜 원석은 빛을 잃어가고 있는가?"라는 질문을 세우고, 매출이 오르내린 원인을 찾아 개선점을 제안하는 것을 목표로 삼았습니다. 회사명과 상품명은 공개하지 않습니다.</p>
+            <div class="callout">
+              <span class="meta-label">데이터</span>
+              주문 데이터 18,124건(품목 단위 원본 21,390건을 정제, 2023.05 – 2025.03), 회원 데이터 6,887명, 상품 데이터 158개, 리뷰 데이터 3,728건(원본 6,396건을 정제), 광고 성과 데이터 1,673행과 캠페인별 전환·ROAS 데이터
+            </div>
+          </section>
+
+          <section class="block" id="problem">
+            <h2>문제</h2>
+            <ul>
+              <li>월별 매출이 하락과 정체를 반복하며, 회복과 유지가 어려운 흐름이었습니다.</li>
+              <li>광고 유입 구매 비율과 ROAS가 전반적으로 떨어지고 있었습니다.</li>
+              <li>신상품 출시는 꾸준히 늘었지만 전체 매출 하락을 되돌리지 못했습니다.</li>
+            </ul>
+          </section>
+
+          <section class="block" id="insight">
+            <h2>인사이트</h2>
+            <div class="stat-row">
+              <div class="stat"><span class="value">69%</span><span class="label">전체 고객 중 비회원 비율</span></div>
+              <div class="stat"><span class="value">약 68%</span><span class="label">매출 상위 12개 상품의 매출 비중</span></div>
+              <div class="stat"><span class="value">3개월</span><span class="label">재구매가 집중되는 첫 구매 후 기간</span></div>
+            </div>
+            <figure class="chart reveal">
+              <figcaption><span class="chart-title">고객과 매출이 한쪽에 몰려 있는 구조</span><span class="chart-unit">비중 %</span></figcaption>
+              <div class="chart-group">
+                <p class="stack-label">전체 고객 구성</p>
+                <div class="stack" aria-hidden="true"><span class="seg k" style="--v:69%"></span><span class="seg m" style="--v:31%"></span></div>
+                <ul class="legend"><li><i class="sw k"></i>비회원 <b>69%</b></li><li><i class="sw m"></i>회원 <b>31%</b></li></ul>
+              </div>
+              <div class="chart-group">
+                <p class="stack-label">상품 158개의 매출 구성</p>
+                <div class="stack" aria-hidden="true"><span class="seg k" style="--v:68%"></span><span class="seg m" style="--v:32%"></span></div>
+                <ul class="legend"><li><i class="sw k"></i>매출 상위 12개 상품 <b>약 68%</b></li><li><i class="sw m"></i>나머지 146개 상품 <b>약 32%</b></li></ul>
+              </div>
+            </figure>
+            <ul style="margin-top:16px">
+              <li><strong>타깃 변화:</strong> 과거 대표 상품은 25–44세·남성 구매 비중이 높았지만, 최근 광고 주력 상품은 45–54세·여성 비중이 높았습니다.</li>
+              <li><strong>고객 구조:</strong> 비회원 고객이 다수이고 객단가는 회원보다 낮았습니다.</li>
+              <li><strong>상품 구조:</strong> 신제품 비중이 커지는 동안 기존 상품의 매출 기여가 줄어드는 카니발라이제이션이 나타났습니다.</li>
+            </ul>
+          </section>
+
+          <section class="block" id="role">
+            <h2>내 역할: 상품·매출 데이터로 스테디셀러 제안</h2>
+            <p>저는 상품과 매출 데이터를 맡아, 매출 상위 상품 가운데 앞으로도 집중할 가치가 있는 '스테디셀러'를 골라내는 기준을 만들었습니다.</p>
+
+            <h3>분석 흐름</h3>
+            <ol class="steps">
+              <li><strong>회원·비회원 첫 구매 상품 분석:</strong> 연도별로 회원과 비회원이 처음 구매한 상위 상품을 비교했습니다.</li>
+              <li><strong>신상품 효과 분석:</strong> 월별 매출과 신제품 누적 출시 수를 함께 보고, 신제품 매출 기여도와 기존 상품 기여 감소를 확인했습니다.</li>
+              <li><strong>후보 선정:</strong> 상품별 누적 매출 비율로 상위 12개 상품을 후보로 정했습니다.</li>
+              <li><strong>3단계 필터 (전진소거):</strong> ① 단기 인기 후 급감한 상품, ② 회원 구매 기반이 약한 상품, ③ 공백 기간이 있어 단종·판매 중단이 추정되는 상품을 차례로 제외했습니다.</li>
+              <li><strong>최종 후보와 집중 상품:</strong> 남은 4개 후보의 월별 회원·비회원 구매 추이를 비교해 집중 운영할 핵심 상품 3개를 제안했습니다.</li>
+              <li><strong>재검증 제안:</strong> 관측 기간이 2개월뿐이지만 그 기간에 매출 12위를 기록한 상품은, 수요 확인을 위해 재입고해 다시 검증하자고 제안했습니다.</li>
+            </ol>
+            <figure class="chart reveal">
+              <figcaption><span class="chart-title">158개 상품에서 집중 상품 3개까지</span><span class="chart-unit">상품 수</span></figcaption>
+              <ul class="bars">
+                <li class="bar-row"><span class="bar-label">전체 상품</span><span class="bar-track" aria-hidden="true"><span class="bar" style="--v:100%"></span></span><span class="bar-value">158개</span></li>
+                <li class="bar-row"><span class="bar-label">매출 상위 후보</span><span class="bar-track" aria-hidden="true"><span class="bar" style="--v:7.6%"></span></span><span class="bar-value">12개</span></li>
+                <li class="bar-row"><span class="bar-label">3단계 필터 통과</span><span class="bar-track" aria-hidden="true"><span class="bar" style="--v:2.5%"></span></span><span class="bar-value">4개</span></li>
+                <li class="bar-row is-key"><span class="bar-label">집중 상품</span><span class="bar-track" aria-hidden="true"><span class="bar" style="--v:1.9%"></span></span><span class="bar-value">3개</span></li>
+              </ul>
+            </figure>
+          </section>
+
+          <section class="block" id="strategy">
+            <h2>전략 (팀 최종 제안)</h2>
+            <ul>
+              <li><strong>광고 타겟팅:</strong> 반응이 좋았던 25–44세 남성 대상으로 캠페인과 마케팅 자원을 집중</li>
+              <li><strong>재구매:</strong> 첫 구매 후 3개월 안에 쿠폰(첫 구매 감사·생일), 알림(쿠폰 만료·신제품), 이벤트, 회원가입 유도로 재구매 유도</li>
+              <li><strong>첫 구매 전환:</strong> 비회원에게 객단가가 높은 상품을 제안해 회원 수준의 구매 행동을 유도</li>
+              <li><strong>상품 포트폴리오:</strong> 스테디셀러 3개에 집중하고, 리뷰에서 나온 단점(내구성, 사이즈, 색상 차이 등)을 개선 과제로 정리</li>
+            </ul>
+          </section>
+
+          <section class="block" id="result">
+            <h2>결과·한계</h2>
+            <p>최종 발표에서 위 전략을 제안했습니다. 제안이 실제로 실행되었는지와 그에 따른 매출 변화는 확인하지 못했습니다.</p>
+            <p>비회원 첫 구매 상품을 객단가가 높은 상품으로 바꾸는 가정 시뮬레이션에서는 해당 상품군 매출이 약 16% 늘어나는 것으로 계산되었습니다. 이는 실제 성과가 아니라 구매 건수를 바꿔 넣은 가정 계산입니다.</p>
+          </section>
+        </article>
+      </div>
+
+      <nav class="next-project" aria-label="다른 프로젝트">
+        <a href="../index.html#projects">← 전체 프로젝트</a>
+        <a href="fuel-cost.html">다음: 실질 주유 비용 분석 →</a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2026 이보림</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

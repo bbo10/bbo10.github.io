@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instacart 재구매 전략 · 이보림</title>
+  <meta name="description" content="Instacart 장바구니·RFM 분석 기반 재구매 전략 프로젝트">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html">이보림</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <a class="back" href="../index.html#projects">← 프로젝트 목록</a>
+
+      <section class="detail-hero">
+        <p class="eyebrow">03 · CRM</p>
+        <h1>Instacart 장바구니·RFM 분석 기반 재구매 전략</h1>
+        <p class="lead">재구매가 많이 일어나는 상품군과 고객군을 찾고, 장바구니 크기와 RFM 세그먼트에 맞춘 CRM 전략을 제안했습니다.</p>
+
+        <div class="meta-table">
+          <div><span class="meta-label">기간</span><span class="value">2025.02.19 – 02.28</span></div>
+          <div><span class="meta-label">구성</span><span class="value">4인 팀</span></div>
+          <div><span class="meta-label">기여도</span><span class="value">30%</span></div>
+          <div><span class="meta-label">도구</span><span class="value">Python (pandas, mlxtend, plotly)</span></div>
+          <div class="meta-wide"><span class="meta-label">데이터 규모</span><span class="value">주문-상품 기록 33,819,106건 · 고객 206,209명 (CSV 6개 통합)</span></div>
+        </div>
+        <div class="answer-card">
+          <div class="ac-q"><span class="meta-label">질문</span><p>재구매를 늘리려면 주문 크기와 빈도 중 무엇을 키워야 할까?</p></div>
+          <div class="is-answer"><span class="meta-label">답</span><p>주문 크기보다 주문 빈도를 늘리는 CRM이 맞습니다.</p></div>
+          <div class="ac-e"><span class="meta-label">근거</span><p>장바구니 크기 구간과 관계없이 재구매율은 약 60%로 비슷했습니다. 반복 구매가 많은 신선식품의 재구매율은 65.4%로 가장 높았습니다.</p></div>
+          <div class="ac-j"><span class="meta-label">내 판단</span><p>이상치로 보이던 상위 1% 고객의 재구매율이 78.9%(일반 44.1%)여서, 지우지 않고 핵심 고객으로 남겼습니다.</p></div>
+        </div>
+      </section>
+
+      <div class="detail-body">
+        <nav class="toc" aria-label="이 페이지 목차">
+          <ol>
+            <li><a href="#background">배경</a></li>
+            <li><a href="#role">내 역할</a></li>
+            <li><a href="#insight">인사이트</a></li>
+            <li><a href="#segment">고객 세분화</a></li>
+            <li><a href="#strategy">전략</a></li>
+            <li><a href="#result">결과·한계</a></li>
+          </ol>
+        </nav>
+
+        <article>
+          <section class="block" id="background">
+            <h2>배경</h2>
+            <p>Instacart는 미국·캐나다의 온라인 식료품 플랫폼으로, 고객들은 한 번에 많이 사기보다 적은 양을 자주 반복해서 구매하는 경향이 있습니다.</p>
+            <p>그래서 고객별 구매 패턴을 분석해 맞춤형 마케팅을 강화할 필요가 있다고 판단했고, 구매 이력과 주문 빈도를 바탕으로 재구매 가능성이 높은 고객을 고르기 위해 RFM 분석을 활용하기로 했습니다. 목표는 공개 주문 데이터로 재구매율을 높일 수 있는 맞춤형 전략을 도출하는 것이었습니다.</p>
+            <div class="callout">
+              <span class="meta-label">데이터</span>
+              주문·상품 관련 CSV 6개(orders, order_products prior/train, products, aisles, departments)를 통합한 데이터. 고객 약 20만 명(206,209명).
+            </div>
+            <p>처음에는 SQL로 진행하려 했지만, 데이터가 커서 작업이 진행되지 않아 Python으로 분석했습니다.</p>
+          </section>
+
+          <section class="block" id="role">
+            <h2>내 역할: 데이터 전처리와 재구매 EDA</h2>
+            <ol class="steps">
+              <li><strong>데이터 통합:</strong> 주문-상품 데이터를 합치고 상품 분류(aisle, department)와 요일 컬럼을 붙여 하나의 분석용 데이터셋을 만들었습니다. 결측값과 병합 상태를 확인했습니다.</li>
+              <li><strong>가설 1 — 재구매율이 높은 상품군이 있다:</strong> department를 5개 상위 카테고리로 묶어 카테고리별 재구매율을 계산했습니다.</li>
+              <li><strong>가설 2 — 장바구니가 클수록 재구매율이 높다:</strong> 주문별 장바구니 크기 구간에 따른 재구매율과 고객별 구매 수량과 재구매율의 관계를 확인했습니다.</li>
+              <li><strong>이상치 판단:</strong> IQR, Z-Score, 백분위수 세 가지 방법으로 이상치를 확인했고, 상위 1% 고객의 재구매율이 일반 고객보다 크게 높아 핵심 고객일 수 있다고 보고 제거하지 않았습니다.</li>
+            </ol>
+          </section>
+
+          <section class="block" id="insight">
+            <h2>인사이트</h2>
+            <div class="stat-row">
+              <div class="stat"><span class="value">65.4%</span><span class="label">신선식품 카테고리 재구매율 (5개 중 가장 높음)</span></div>
+              <div class="stat"><span class="value">약 60%</span><span class="label">장바구니 크기 구간별 재구매율 (구간 간 차이 작음)</span></div>
+              <div class="stat"><span class="value">78.9%</span><span class="label">상위 1% 구매 고객 평균 재구매율 (일반 44.1%)</span></div>
+            </div>
+            <figure class="chart reveal">
+              <figcaption><span class="chart-title">고객군별 평균 재구매율</span><span class="chart-unit">%</span></figcaption>
+              <ul class="bars">
+                <li class="bar-row is-key"><span class="bar-label">상위 1% 구매 고객</span><span class="bar-track" aria-hidden="true"><span class="bar" style="--v:78.9%"></span></span><span class="bar-value">78.9%</span></li>
+                <li class="bar-row"><span class="bar-label">일반 고객</span><span class="bar-track" aria-hidden="true"><span class="bar" style="--v:44.1%"></span></span><span class="bar-value">44.1%</span></li>
+              </ul>
+              <p class="chart-note">상위 1% 고객은 이상치로 보이지만 재구매율이 일반 고객보다 크게 높아, 제거하지 않고 핵심 고객으로 다뤘습니다.</p>
+            </figure>
+            <ul style="margin-top:16px">
+              <li>신선식품이 판매 비중(25.5%)과 재구매율 모두 가장 높아, 주기적으로 반복 구매되는 구조가 확인되었습니다.</li>
+              <li>대부분의 주문은 소량이며, 주문 하나의 장바구니 크기와 재구매율 사이에는 뚜렷한 차이가 없었습니다. 그래서 객단가보다 주문 빈도를 높이는 방향이 적절하다고 판단했습니다.</li>
+            </ul>
+          </section>
+
+          <section class="block" id="segment">
+            <h2>고객 세분화 (팀 분석)</h2>
+            <p>Recency(이전 주문 이후 경과 일수), Frequency(총 주문 횟수), Monetary(주문당 평균 구매 상품 수)로 점수를 매겨 4개 세그먼트로 나눴습니다.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th scope="col">세그먼트</th><th scope="col">RFM 점수</th><th scope="col">비중</th><th scope="col">전략 방향</th></tr></thead>
+                <tbody>
+                  <tr><td>우수 고객</td><td>13–15</td><td>0.7%</td><td>VIP 혜택</td></tr>
+                  <tr><td>잠재 고객</td><td>10–12</td><td>38.0%</td><td>적극 리마케팅</td></tr>
+                  <tr><td>관심 필요 고객</td><td>7–9</td><td>54.1%</td><td>리마인드 마케팅</td></tr>
+                  <tr><td>이탈 위험 고객</td><td>3–6</td><td>7.2%</td><td>웰컴백 리워드</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figure class="chart reveal">
+              <figcaption><span class="chart-title">RFM 세그먼트별 고객 비중</span><span class="chart-unit">고객 비중 %</span></figcaption>
+              <div class="stack" aria-hidden="true"><span class="seg o1" style="--v:0.7%"></span><span class="seg o2" style="--v:38%"></span><span class="seg o3" style="--v:54.1%"></span><span class="seg o4" style="--v:7.2%"></span></div>
+              <ul class="legend"><li><i class="sw o1"></i>우수 <b>0.7%</b></li><li><i class="sw o2"></i>잠재 <b>38.0%</b></li><li><i class="sw o3"></i>관심 필요 <b>54.1%</b></li><li><i class="sw o4"></i>이탈 위험 <b>7.2%</b></li></ul>
+              <p class="chart-note">고객의 절반 이상이 '관심 필요' 구간에 있어, 리마인드 마케팅의 대상이 가장 넓었습니다.</p>
+            </figure>
+            <p style="margin-top:12px">이 밖에 상품 분류 단위 연관규칙 분석(최소 지지도 5%, 최소 신뢰도 30%)으로 함께 구매되는 조합을 확인했습니다.</p>
+          </section>
+
+          <section class="block" id="strategy">
+            <h2>전략 (팀 최종 제안)</h2>
+            <h3>장바구니 크기별</h3>
+            <ul>
+              <li><strong>작은 장바구니 고객:</strong> 다음 구매 할인, 일정 금액 이상 무료 배송, 리마인더 메일로 충성도 확보. 반복 구매 상품은 추천 팝업과 정기 배송 구독으로 연결</li>
+              <li><strong>큰 장바구니 고객:</strong> VIP 멤버십 혜택, 포인트 적립, 기업 고객 대상 대량 구매 멤버십</li>
+            </ul>
+            <h3>세그먼트별</h3>
+            <p>우수 고객은 VIP 혜택, 잠재 고객은 리마케팅, 관심 필요 고객은 리마인드 마케팅, 이탈 위험 고객은 웰컴백 리워드로 접근하도록 제안했습니다.</p>
+          </section>
+
+          <section class="block" id="result">
+            <h2>결과·한계</h2>
+            <p>공개 데이터 기반의 제안 단계 프로젝트로, 전략을 실제로 실행해 본 결과는 없습니다.</p>
+            <p>데이터 규모가 커서 메모리 문제로 분석에 시간이 많이 들었고, 구매 금액 데이터가 없어 Monetary를 금액 대신 주문당 구매 상품 수로 정의했습니다.</p>
+          </section>
+        </article>
+      </div>
+
+      <nav class="next-project" aria-label="다른 프로젝트">
+        <a href="fuel-cost.html">← 이전: 실질 주유 비용 분석</a>
+        <a href="credit-policy.html">다음: 신용 승인 정책 →</a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2026 이보림</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
