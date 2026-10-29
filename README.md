@@ -14,16 +14,6 @@ assets/css/style.css           디자인 토큰과 전체 스타일
 assets/js/main.js              헤더 경계선, 짧은 페이드인, 목차 표시
 ```
 
-## 로컬에서 보기
-
-`index.html`을 브라우저로 열면 됩니다. 한글 글꼴(Pretendard)은 jsDelivr CDN에서 불러오므로 인터넷 연결이 없으면 시스템 글꼴로 표시됩니다.
-
-## 수정할 곳
-
-- 이름: 모든 HTML 파일의 `<title>`, 상단 로고, 하단
-- 연락처: `index.html`의 Contact
-- 색상·여백: `assets/css/style.css` 맨 위 `:root`
-
 ## 배포 (GitHub Pages)
 
 `bbo10/bbo10.github.io` 저장소의 `main` 브랜치 루트에서 https://bbo10.github.io/ 로 배포합니다.
