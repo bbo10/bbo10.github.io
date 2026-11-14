@@ -7,8 +7,23 @@
   <meta name="description" content="마케팅과 데이터 분석을 함께 하는 포트폴리오: 데이터로 결정 기준을 만든 프로젝트 4개">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    // 첫 방문(세션당 1회)에만 인트로 표시, 동작 줄이기 설정 시 생략
+    try {
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !sessionStorage.getItem('introSeen')) {
+        document.documentElement.classList.add('has-intro');
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
+  <div class="intro" aria-hidden="true">
+    <div class="intro-mark">
+      <span class="mask"><span>이보림</span></span>
+      <span class="intro-line"></span>
+      <span class="mask"><span class="intro-sub">Portfolio</span></span>
+    </div>
+  </div>
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
 
   <header class="site-header">
@@ -25,16 +40,16 @@
   <main id="main">
     <section class="hero" id="top">
       <div class="container">
-        <p class="eyebrow">Marketing × Data Analytics</p>
-        <h1>감이 아니라<br>기준으로 결정합니다</h1>
-        <p class="lead">저는 <strong>"이 문제를 해결하지 않으면 무엇이 계속 나빠질까?"</strong>라는 질문에서 시작해, 데이터로 원인을 좁히고 누가 보더라도 같은 결정을 내릴 수 있는 기준으로 정리합니다.</p>
+        <p class="eyebrow hero-item">Marketing × Data Analytics</p>
+        <h1 class="hero-item line-reveal"><span class="ln"><span>감이 아니라</span></span><span class="ln"><span>기준으로 결정합니다</span></span></h1>
+        <p class="lead hero-item">저는 <strong>"이 문제를 해결하지 않으면 무엇이 계속 나빠질까?"</strong>라는 질문에서 시작해, 데이터로 원인을 좁히고 누가 보더라도 같은 결정을 내릴 수 있는 기준으로 정리합니다.</p>
       </div>
     </section>
 
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="container">
         <div class="section-head">
-          <h2 id="projects-title">Projects</h2>
+          <h2 id="projects-title" class="line-reveal"><span class="ln"><span>Projects</span></span></h2>
           <p>질문과 답을 먼저 보여 드립니다. 카드를 누르면 근거를 볼 수 있습니다.</p>
         </div>
 
@@ -98,7 +113,7 @@
     <section class="section" id="skills" aria-labelledby="skills-title">
       <div class="container">
         <div class="section-head">
-          <h2 id="skills-title">Skills</h2>
+          <h2 id="skills-title" class="line-reveal"><span class="ln"><span>Skills</span></span></h2>
           <p>프로젝트에서 실제로 사용한 도구와 방법입니다.</p>
         </div>
 
@@ -142,9 +157,9 @@
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <div class="section-head">
-          <h2 id="contact-title">Contact</h2>
+          <h2 id="contact-title" class="line-reveal"><span class="ln"><span>Contact</span></span></h2>
         </div>
-        <ul class="contact-list">
+        <ul class="contact-list reveal">
           <li><span class="meta-label">Email</span><a href="mailto:borim0810@gmail.com">borim0810@gmail.com</a></li>
           <li><span class="meta-label">GitHub</span><a href="https://github.com/bbo10/portfolio-projects">github.com/bbo10/portfolio-projects</a></li>
         </ul>
